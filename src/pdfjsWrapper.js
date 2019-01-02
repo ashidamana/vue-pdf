@@ -294,6 +294,7 @@ export default function(PDFJS) {
 			pdfPage = null;
 
 			emitEvent('num-pages', undefined);
+			emitEvent('num-pages', undefined);
 
 			if ( !src ) {
 
@@ -341,6 +342,7 @@ export default function(PDFJS) {
 
 				pdfDoc = pdf;
 				emitEvent('num-pages', pdf.numPages);
+				emitEvent('pdf-page-info', pdf);
 				emitEvent('loaded');
 			})
 			.catch(function(err) {
