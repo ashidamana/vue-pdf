@@ -277,6 +277,7 @@ export default function(PDFJS) {
 			.then(function(page) {
 
 				pdfPage = page;
+				emitEvent('page-size', page.getViewport(1).width, page.getViewport(1).height);
 				this.renderPage(rotate);
 				emitEvent('page-loaded', page.pageNumber);
 			}.bind(this))
@@ -294,7 +295,7 @@ export default function(PDFJS) {
 			pdfPage = null;
 
 			emitEvent('num-pages', undefined);
-			emitEvent('num-pages', undefined);
+
 
 			if ( !src ) {
 
